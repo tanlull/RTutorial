@@ -1,0 +1,20 @@
+---
+title: "08_kNN"
+output: html_document
+---
+
+```{r}
+library(class)
+library(printr)
+
+train.indeces <- sample(1:nrow(iris), 100)
+iris.train <- iris[train.indeces, ]
+iris.test <- iris[-train.indeces, ]
+
+results <- knn(train = subset(iris.train, select = -Species),
+    test = subset(iris.test, select = -Species),
+    cl = iris.train$Species)
+
+table(results, iris.test$Species)
+
+```

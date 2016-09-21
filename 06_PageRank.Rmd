@@ -1,0 +1,15 @@
+---
+title: "06_PageRank"
+output: html_document
+---
+
+```{r}
+library(igraph)
+library(dplyr)
+library(printr)
+g <- random.graph.game(n = 10, p.or.m = 1/4, directed = TRUE)
+plot(g)
+pr <- page.rank(g)$vector
+df <- data.frame(Object = 1:10, PageRank = pr)
+arrange(df, desc(PageRank))
+```
