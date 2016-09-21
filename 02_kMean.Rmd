@@ -1,0 +1,14 @@
+---
+title: "Kmean cluster"
+output: html_document
+---
+
+```{r}
+library(stats)
+library(printr)
+
+model <- kmeans(x = subset(iris, select = -Species), centers = 3)
+
+table(model$cluster, iris$Species)
+
+```

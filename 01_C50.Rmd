@@ -1,0 +1,21 @@
+---
+title: "C50 classification"
+output: html_document
+---
+
+```{r}
+library(C50)
+library(printr)
+
+train.indeces <- sample(1:nrow(iris), 100)
+iris.train <- iris[train.indeces, ]
+iris.test <- iris[-train.indeces, ]
+
+
+model <- C5.0(Species~., data = iris.train)
+
+results <- predict(object = model, newdata = iris.test, type = "class")
+
+table(results, iris.test$Species)
+
+```

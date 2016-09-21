@@ -1,0 +1,17 @@
+---
+title: "05_EM"
+output: html_document
+---
+ 
+```{r}
+library(mclust)
+library(printr)
+
+
+model <- Mclust(subset(iris, select = -Species))
+
+table(model$classification, iris$Species)
+
+plot(model)
+
+```
