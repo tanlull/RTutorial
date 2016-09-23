@@ -1,0 +1,27 @@
+---
+title: "NaiveBayes"
+output: html_document
+---
+
+```{r}
+library(e1071)
+library(printr)
+
+train.indeces <- sample(1:nrow(iris), 100)
+
+#print(iris)
+
+print(train.indeces)
+
+iris.train <- iris[train.indeces, ]
+iris.test <- iris[-train.indeces, ]
+
+#print(iris.test)
+
+model <- naiveBayes(x = subset(iris.train, select=-Species), y = iris.train$Species)
+
+results <- predict(object = model, newdata = iris.test, type = 'class')
+
+table(results, iris.test$Species)
+
+```
