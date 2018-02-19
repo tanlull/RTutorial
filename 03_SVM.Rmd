@@ -4,8 +4,13 @@ output: html_document
 ---
 
 ```{r}
+
+
+
+
 library(e1071)
 library(printr)
+library(caret)
 
 
 train.indeces <- sample(1:nrow(iris), 100)
@@ -15,9 +20,21 @@ iris.test <- iris[-train.indeces, ]
 
 model <- svm(Species ~ ., data = iris.train)
 
+model
+
+```
+
+```{r}
 results <- predict(object = model, newdata = iris.test, type = "class")
+results
+```
 
 
+```{r}
 table(results, iris.test$Species)
+```
 
+```{r}
+
+confusionMatrix(results, iris.test$Species)
 ```

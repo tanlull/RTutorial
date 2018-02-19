@@ -3,6 +3,8 @@ title: "04_Apriori"
 output: html_document
 ---
 ```{r, warning = FALSE, message = FALSE}
+#nstall.packages("arules")
+
 library(arules)
 library(printr)
 data("Adult")

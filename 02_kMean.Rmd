@@ -6,9 +6,19 @@ output: html_document
 ```{r}
 library(stats)
 library(printr)
+library(caret)
 
 model <- kmeans(x = subset(iris, select = -Species), centers = 3)
 
-table(model$cluster, iris$Species)
+model
+
 
 ```
+
+
+```{r}
+table(model$cluster, iris$Species)
+```
+
+
+
